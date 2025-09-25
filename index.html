@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livro Digital - Tripartição de Poderes no Brasil</title>
+<style>
+  /* Reset */
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Georgia', serif; background: #f0eee6; color: #222; }
+
+  /* Container livro */
+  .book-container { display: flex; flex-direction: column; align-items: center; padding: 15px; }
+
+  /* Seções como páginas */
+  .pages { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; width: 100%; }
+  .page { 
+    flex: 0 0 100%; 
+    scroll-snap-align: start; 
+    background: #fffdf5; 
+    border-radius: 12px; 
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); 
+    padding: 35px 25px; 
+    margin: 10px; 
+    min-height: 75vh; 
+    max-width: 900px; 
+    transition: transform 0.3s ease; 
+  }
+  .page:hover { transform: translateY(-3px); }
+
+  /* Títulos */
+  h1,h2,h3,h4 { margin-bottom: 10px; font-weight: 600; }
+  h1 { font-size: 1.9rem; color:#2a2a2a; border-bottom: 2px solid #007BFF; padding-bottom:4px; margin-top:0; }
+  h2 { font-size: 1.5rem; color:#333; margin-top:20px; }
+  h3 { font-size: 1.2rem; color:#555; margin-top:18px; }
+  p { margin-bottom: 15px; line-height:1.6; text-align: justify; }
+  blockquote { margin: 15px 0; padding: 12px 20px; background: #e9ecef; border-left: 4px solid #007BFF; font-style: italic; }
+  ul { margin-left: 18px; margin-bottom: 15px; }
+  li { margin-bottom: 8px; }
+
+  /* Botões de navegação */
+  .nav-buttons { display:flex; justify-content: space-between; width: 100%; max-width: 900px; margin-top:10px; }
+  .nav-buttons button { 
+    background:#007BFF; 
+    color:#fff; 
+    border:none; 
+    padding:10px 20px; 
+    border-radius:20px; 
+    cursor:pointer; 
+    font-weight:600; 
+    font-size:0.95rem;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    transition:0.3s; 
+  }
+  .nav-buttons button:hover { background:#0056b3; transform: scale(1.03); }
+
+  /* Footer */
+  footer { text-align:center; margin-top:25px; font-size:0.85rem; color:#555; }
+
+  /* Responsividade */
+  @media(max-width:1024px){
+    .page { padding:25px; margin:8px; }
+    h1 { font-size:1.7rem; }
+    h2 { font-size:1.4rem; }
+    h3 { font-size:1.1rem; }
+    p { font-size:0.95rem; }
+  }
+
+  @media(max-width:768px){
+    .page { padding:18px; margin:6px; }
+    h1 { font-size:1.5rem; }
+    h2 { font-size:1.2rem; }
+    h3 { font-size:1rem; }
+    p { font-size:0.9rem; }
+    .nav-buttons button { padding:8px 16px; font-size:0.85rem; }
+  }
+</style>
+
+</head>
+<body>
+
+<div class="book-container">
+  <div class="pages" id="pages">
+
+    <!-- Resumo -->
+    <section class="page" id="resumo">
+      <h1>Resumo</h1>
+      <p>Em que pese a redação contida no art. 2º da Constituição da República Federativa do Brasil, que não deixa qualquer margem de dúvida sobre a sua extensão e clareza ao ponderar que “são Poderes da União, independentes e harmônicos entre si, o Legislativo, o Executivo e o Judiciário”, na prática tem-se verificado que o Poder Executivo tem assumido força, protagonismo e influência sobre os demais Poderes da república a ponto de desnaturar a essência republicana. O presente texto vem colocar um pouco mais de luzes sobre o debate que ainda é incipiente, mas necessário, para tornar no mínimo equilibrada a relação entre os Poderes na República Federativa do Brasil. Não há mais como admitir que o Poder Executivo, dentro do presidencialismo de coalizão praticado no Brasil continue sendo mantido, pois as consequências estão ocasionando a ingovernabilidade, a quebra da isonomia.</p>
+      <p><strong>Palavras-chave:</strong> Separação dos Poderes; presidencialismo; necessidade de garantir a independência e harmonia entre os poderes.</p>
+    </section>
+
+    <!-- Abstract -->
+    <section class="page" id="abstract">
+      <h2>Abstract</h2>
+      <p>In spite of the wording contained in art. 2 of the Constitution of the Federative Republic of Brazil, which leaves no room for doubt as to its extent and clarity in considering that “there are powers of the Union, independent and harmonious among each other, the Legislative, the Executive and the Judiciary”, in practice it is verified that the Executive Power has assumed force, protagonism and influence on the other powers of the republic to the point of denaturing the republican essence. The present text has put a little more light on the debate that is still incipient, but necessary, to make at least a balanced relationship between the Powers in the Federative Republic of Brazil. There is no longer any way to admit that the Executive Branch within the coalition presidentialism practiced in Brazil continues to be maintained, because the consequences are causing ungovernability, the breakdown of isonomy. Keywords: Separation of Powers; presidentialism; need to ensure independence and harmony between powers.</p>
+      <p><strong>Keywords:</strong> Separation of Powers; presidentialism; need to ensure independence and harmony between powers.</p>
+    </section>
+
+    <!-- Introdução -->
+    <section class="page" id="introducao">
+      <h2>Introdução</h2>
+      <p>Acabam por deixar a tripartição de poderes, no que concerne ao equilíbrio, a mera questão a ser ensinada na academia pois na prática há um evidente desequilíbrio. Mas, dentro da moldura fática vivida e inspirada em tempos remotos cabe citar os mestres portugueses Canotilho e Vital Moreira. Um sistema de governo composto por uma pluralidade de órgãos requer necessariamente que o relacionamento entre os vários centros do poder seja pautado por normas de lealdade constitucional (Verfassungstrue na terminologia alemã). A lealdade institucional compreende duas vertentes, uma positiva, outra negativa. A primeira consiste em que os diversos órgãos do poder devem cooperar na medida necessária para realizar os objetivos constitucionais e para permitir o funcionamento do sistema com o mínimo de atritos possíveis. A segunda determina que os titulares dos órgãos do poder devem respeitar-se mutuamente e renunciar à prática de guerrilha institucional, de abuso do poder, de retaliação gratuita ou de desconsideração grosseira. Na verdade, nenhuma cooperação constitucional será possível, sem uma deontologia política, fundada no respeito das pessoas e das instituições e num apurado sentido de responsabilidade de Estado (statesmanship)[4]. É possível afirmar a existência de uma hipertrofia dos poderes exercidos pelo presidencialismo no Brasil, ainda mais diante da presença do “presidencialismo de coalizão”. É importante ressaltar que dentro de um Estado liberal a atuação do Poder Executivo é meramente observadora, atuando de forma negativa, portanto deixando de atuar politicamente. Por outro lado, com a força do Estado social, com as constituições do México (1917) e de Weimar (1919) passa a impor novos formatos ao Estado, assumindo uma feição de interesse profundamente fincados na seara social. Como consequência mais visível do Estado social, ou seja, o Estado intervindo para garantir direitos fundamentais aos seus integrantes passa o Estado a desfrutar de um novo “status”, passa a ser entendido como garantidor, ou seja, como aquele que é o garante contra a intervenção do capital. Dentro desse quadro há uma bem engendrada organização política que passa a impor uma dependência dos seus integrantes às políticas do Estado. Dentro da baixa densidade cultural e de valores pessoais dos integrantes de determinado Estado está criada dependência às políticas sociais. Esse quadro fático faz com que se crie uma conjunção de fatores, em vários casos, perversa de uma “troca” entre o titular do poder político para sua permanência ou de seu grupo político, em troca pela concessão de benefícios aos integrantes do Estado. Assim, cria-se a preponderância dos Poderes nas mãos do chefe do Poder Executivo, em razão da presença concentrada de poderes e prerrogativas dentro do feixe de competências que lhe são conferidas pelo texto constitucional, bem como pela legislação infraconstitucional. No Brasil essa preponderância é por demais evidenciada nos últimos anos. Dentro dessa temática reflexiva e introdutória deve ser pontual, já que o espaço ideal desse debate extrapola o permitido no atual contexto, mas sem perder a precisão científica. Por oportuno, diante do desequilíbrio entre os poderes na República Federativa do Brasil, entenda-se: que há, e não é recente a constatação, a “invasão” nas funções públicas. Como não há vácuo de poder, outros “poderes” acabam assumindo preponderância em face dos constituídos e descritos na tripartição constitucional. A toda evidência, tanto o Ministério Público, quanto os Tribunais de Contas vem assumindo funções que eram destinadas aos Poderes Legislativo e Judiciário. Em razão da inexpressiva capacidade do Poder Legislativo em legislar, com a aquiescência constante das Medidas Provisórias produzidas pelo Poder Executivo, mas o que é mais grave se verifica quando ao total desespero para fiscalizar os outros Poderes o Legislativo cede graciosamente uma de suas funções típicas aos Tribunais de Contas. Sobreleva enfatizar que os Tribunais de Contas são auxiliares do Poder Legislativo, mas que nos últimos anos vem assumindo a vezes daquele poder. A razão é plenamente explicável, pois os parlamentares deixaram de ser fiscalizadores para assumirem a posição de assistencialistas de suas bases eleitorais. Com isso, não há um mínimo cuidado de legislar, nem tampouco de fiscalizar. Os complexos comandos orçamentários, previstos tanto na Constituição Federal, bem como na Lei 4.320, de 17.03.1964 não se adequam à atual realidade dos representantes do Parlamento, em todas as esferas. Nos parlamentos prepondera a prática do assistencialismo, o “deputado especialista em liberar verbas públicas”, o deputado “despachante de luxo em Brasília”, mas nada de exercer a função de legislar e fiscalizar. Assim, alguém tem que fazer o trabalho técnico e controlar os gastos públicos, então assume o controle os Tribunais de Contas, que diante da fragilidade intelectual, interesse público e densidade em assuntos contábeis de órgão auxiliar passa a desfrutar de condição principal. À guisa de raciocínio os Tribunais de Contas, na atualidade desfrutam de importância singular a ponto de determinar a paralisação de obras, suspender certames licitatórios, atuando como se fosse o próprio Poder Judiciário. Por outro lado, o Ministério Público, dentro das competências fixadas no art. 129 da Constituição Federal, por igual, diante da falta de cumprimento das funções típicas e atípicas do Poder Executivo, especialmente nos Estados e Municípios, impõe sua vontade como se administrador fosse. O Ministério Público se arvora a determinar a entrega de medicamentos, mesmo que para tal desiderato o gestor público venha a comprometer consideravelmente o orçamento do ano para atender a imposição ministerial. A federação brasileira precisa ser repactuada! Cada qual cumprindo com a sua função típica e atípica, não “delegando” ou se omitindo do exercício da função precípua do respectivo Poder..</p>
+    </section>
+
+    <!-- Página 1 -->
+    <section class="page" id="pagina1">
+      <h2>Página 1</h2>
+      <h2>Ao que o deputado faz?</h2>
+      <p>Com a anuência do candidato à Presidência, mobiliza toda a bancada do partido para aprovação de emendas parlamentares que levem melhorias — asfalto e rede de esgoto, por exemplo — ao reduto do vereador. Parte do dinheiro é realmente destinada às obras, enquanto uma bela fatia é dividida entre os interessados. O deputado é remunerado pela articulação política, e o vereador recebe um “borderô”, verba que inclui seu próprio cachê e o dinheiro para afogar o eleitorado com mimos variados. Todo mundo ganha, pois o vereador faz campanha para o candidato à Presidência, para o candidato ao Senado e para ele mesmo, que dali a dois anos concorrerá à reeleição no município[6]. Entretanto, não é essa a função do parlamentar. Não é atribuição precípua dos parlamentares buscar recursos para as suas bases, mas sim, reitere-se, fiscalizar a administração pública e produzir leis que venham ao encontro dos desejos da população. Na prática, “troca-se” o voto em uma votação importantíssima, de relevância duvidosa para o povo, pelo pagamento de uma emenda parlamentar. Construir instrumentos de preservação do espaço institucional, pela definição de competências e atribuições para o exercício político eleitoral, de sorte que essa previsão legal imitadora funcione como um balizador recíproco impedindo a preeminência de um poder sobre o outro. Caso contrário estar-se-á garantindo que continuem a se avolumar os poderes nas mãos dos ocupantes dos cargos de Chefe do Poder Executivo, diante da força que exercem, bem como da fraca capacidade de resistência e argumentação dos parlamentares, os quais se tornam meros “especialistas em liberações de recursos” para as suas bases eleitorais, pouco importando que para tanto venham a reduzir ainda mais a importância do Poder Legislativo, avolumando ainda mais o Poder Executivo, constituindo-se no “Poder Moderador” nacional. Faz-se por demais necessário a construção de um relacionamento mínimo entre o parlamento e o Poder Executivo pautado pelo equilíbrio razoável com a adoção de uma política de gestão que torne possível a convivência entre as atuais divisões, todas elas essenciais, e a distinção entre estado e governo e a construção de uma burocracia profissional, com a vedação de participação partidária, que execute com técnica e racionalidade as escolhas políticas, ou seja, sem partidarismo. Essa ausência de uma gestão pública eficiente é que está por produzir os enormes e incontáveis déficits públicos, os quais acabarão por inviabilizar o plano de estabilização econômica no plano real e, tendo como consequência mais trágica o desequilíbrio nas contas públicas o processo inflacionário no Brasil e a incapacidade na prestação de serviços públicos essenciais....</p>
+    </section>
+
+    <!-- Página 2 -->
+    <section class="page" id="pagina2">
+      <h2>Página 2 - Presidencialismo de Coalizão</h2>
+      <p>Cabe reafirmar que no sistema político brasileiro há uma importância desmedida concedida ao chefe do Poder Executivo. Esse desequilíbrio torna-se mais evidente, pelo fato de que o Presidente da República assume os contornos deste “centro propulsor” das forças governamentais de forma concentrada. Por sua vez, esta preponderância não é verificada nos outros dois poderes da nossa Federação. Nestes termos cabe citar João Féder:.</p>
+   <p>O mais desinteressado olhar pode constatar que não há mais equilíbrio entre os chamados poderes do Estado, rompido que foi pelo visível fortalecimento do Executivo, que passou a manipular e até assumir tanto funções judiciais, como o demonstra o exemplo do contencioso administrativo, como igualmente funções legislativas, estas ora pela iniciativa do processo legislativo do que se faz inclusive titular absoluto em mais de um gênero de lei, ora pela imposição de normas especiais que tornam mais fácil obter do legislativo o referendo para atos de seu interesse. Se antigamente predominava o Legislativo como poder, é inegável que a evolução do Estado caminhou no sentido da ampliação das atividades do executivo, e com isso acabou por atribuir-lhe mais poder de criação política, desequilibrando as decantadas harmonia e independência da tripartição. A última, em verdade, jamais existiu ou existirá no sentido da trilogia, pois não cabe conceber a ação dos órgãos do Estado senão através da interdependência. Foi a ideia antiga da independência dos poderes, aliás, que deu a doutrinadores a imagem de que o Estado era dividido em três Estados[7]. Assiste ao Chefe do Poder Executivo, no Brasil, uma força política, de tamanha envergadura que se concretiza com a possibilidade de concentrar a maior parte das receitas públicas, editar Medidas Provisórias[8], nomear Ministros do Supremo Tribunal Federal[9], do Superior Tribunal de Justiça, do Tribunal de Contas da União[10]. Este descompasso administrativo é muito mais visível no Brasil, o qual pode ser ainda mais potencializado quando se verifica implícita, ou até mesmo explicitamente, a influência que o chefe do Poder Executivo exerce na concentração da arrecadação tributária, assim ponderado por Ricardo Victalino de Oliveira. Não obstante os esforços do constituinte em disciplinar os mecanismos de ajustamento da diversidade, na prática, quando esses recursos assimétricos começaram a ser utilizados, viu-se o quão difícil seria a atuação coordenada entre os entes. A concentração dos principais dispositivos da Constituição mostrou ser inapropriada para uma Federação como a nossa, que pretende cultivar a coexistência amistosa de seus membros, pois o que se assistiu foi a exacerbada centralização de poder na União[11]. Exemplo desse desequilíbrio será novamente produzido com a aprovação da PEC 87/2015, que altera o art. 76 da ADCT[12], dos atuais 20% para 30% a Desvinculação de Receitas da União (DRU) que se constitui em um mecanismo que permite ao Presidente da República usar, dentro do percentual específico, todos os tributos federais vinculados por lei, fundos ou despesas. Acrescente-se ainda o fato de que os partidos políticos no Brasil, salvo raras exceções a exemplo do PMDB e do PT, são agremiações regionais desprovidas de representação política nacional. Por conseguinte, cabe ao Chefe do Poder Executivo Federal contemplar os respectivos regionalismos e seus interesses locais para garantir a governabilidade, em claro detrimento do conjunto federativo. Ao que tudo indica, a excessiva gama de poderes concentrados nas mãos do Presidente da República no Brasil reflete o fato de que presidencialismo no Brasil jamais se divorciou do “poder moderador”, a exemplo do que acontecia no período imperial.</p>
+    </section>
+
+    <!-- Página 3 -->
+    <section class="page" id="pagina3">
+      <h2>Página 3</h2>
+      <p>Em razão de desfrutar desses “superpoderes”, o Presidente da República, no Estado brasileiro, goza de prerrogativas somente concedidas a grandes majestades, assim descritas por Manoel Gonçalves Ferreira Filho: No Brasil, adotou-o a Constituição de 1891, salvo no período entre setembro de 1961 e janeiro de 1963. Mas dele decorreu a deformação de exagerar-se o poder pessoal do Presidente da República, que não encontra os contrapesos efetivos de um Legislativo e de um Judiciário prestigioso e prestigiados. Com apenas uma ponta de exagero, já se escreveu sobre His Majesty, the President of Brazil. Essa acentuação do poder presidencial tem fundas razões. Umas certamente podem ser encontradas na história e na cultura do povo brasileiro, em cuja formação esteve ausente o elemento democrático. Outras são de natureza ideológica. Dentre estas não se pode olvidar a concepção positivista da “ditadura republicana”. De qualquer modo, já Campos Sales, em conhecido pronunciamento, caracterizava o presidencialismo como “o governo pessoal constitucionalmente organizado”. Não é surpreendente, pois, que haja degenerado num “presidencialismo”. Realmente, entre nós o presidencialismo aparece marcado pelo personalismo e pelo autoritarismo. O primeiro traço é favorecido pela fragilidade dos partidos políticos e é hoje acentuado pelo fato de que os meios audiovisuais de comunicação têm uma verdadeira obsessão pelo homem-presidente. O segundo decorre de que tende a concentrar o Poder, pois lhe é fácil, pela distribuição de benesses, sujeitar a seu arbítrio a maioria parlamentar. E sob a Constituição vigente nem precisa disso, porque conta com a possibilidade de editar e reeditar medidas provisórias com força de lei. Ou seja, além de chefe do Executivo, que nos Estados contemporâneos é o governo, também se tornou o principal legislador[13]. Todavia, o sistema de freios e contrapesos (checks and balances) na prática brasileira não passa de um item que compõe a ementa curricular dos cursos de direito, especificamente da disciplina de direito constitucional, pois na realidade esse equilíbrio está muito distante. Destarte, o poder no Brasil é exercido no “toma lá dá cá”. A base de sustentação não é formada a partir da discussão de propostas ou mesmo dentro de um plano de governo, mas fundada em trocas de nomeações e liberações de recursos orçamentários, feitos sob o comando do chefe do Poder Executivo. Por essas razões e tantas outras, as quais proporcionam esse conjunto de poderes é que destoam e acabam por quebrar a regra de harmonia e independência entre os poderes. A crescente ingerência do Estado nos diversos campos da vida da Sociedade, a transformação do Estado Liberal em Estado de Bem-estar social e o aumento das funções administrativas do Poder Público, bem como de sua própria burocracia, contribuíram para ao agigantamento do Poder Executivo, caracterizando, no regime presidencialista sua supremacia em relação aos demais poderes do Estado[14]. A concepção de um sistema denominado de “freios e contrapesos” ou Cheks and Balances, estatuída na ideia separação dos poderes, cujo fundamento se busca nos ideais de John Locke e de Montesquieu, e que tinha como escopo nuclear um....</p>
+    </section>
+
+    <!-- Página 4 -->
+    <section class="page" id="pagina4">
+      <h2>Página 4</h2>
+      <p>Com isso, faz-se necessário criar um método de avaliação do mandato dos ocupantes da chefia do Poder Executivo durante o seu exercício. Por sua vez, passa-se a assegurar ao legítimo titular do poder, o povo, a possibilidade de dar o voto de confiança ou reprovar as práticas adotadas pelo eleito. Bem como um severo controle na arrecadação de recursos para financiar essas campanhas obtidos, via de regra, por intermédio da prática de “caixa dois” a ser implementados pelo Tribunal Superior Eleitoral contando com auxílio do Tribunal de Contas da União.</p>
+    </section>
+
+    <!-- Conclusões -->
+    <section class="page" id="conclusoes">
+      <h2>Conclusões</h2>
+      <p>Em que pese o estreito espaço de debate consubstanciado neste artigo, mas o que se pretende é criar, ou mesmo, ampliar o debate sobre a efetiva tripartição de poderes dentro da República Federativa do Brasil. É importante ressaltar que a forma trinária, na qual se encontra a repartição dos Poderes dentro da República Federativa do Brasil, está respondendo as aspirações do Estado brasileiro? Efetivamente há uma harmonia e independência entre os poderes, consoante em obediência ao art. 2º da Constituição Federal? Efetiva ou parcialmente os direitos e garantias fundamentais estão sendo assegurados aos brasileiros? Os Poderes estão cumprindo com as suas funções típicas ou atípicas? Estas são alguns questionamentos os quais merecem a mais profunda e detida reflexão. No Brasil não há, ao que se verifica, uma harmonia e independência entre os Poderes pelo fato de que o Chefe do Poder Executivo extrapola os seus Poderes. Por sua vez, o Poder Legislativo abandonou há bastante tempo a sua funções precípuas de Legislar e Fiscalizar, passando a se constituir em um mero poder composto por lobistas, os quais estão mais preocupados na defesa dos seus respectivos interesses, em mesmo de liberar verbas para as suas bases eleitorais, em troca se omite do dever de fiscalizar os outros dois poderes. Diante desse descompasso, instituições estão buscando fazer as vezes que são reservadas ao Poder Legislativo, esse condescendente com o Poder Executivo, como o exemplo das práticas garantidoras exercidas pelo Poder Judiciário, tão criticado a ponto de ser pejorativamente classificado suas práticas como sendo um exercício de um “ativismo judicial”. Por outro lado, ao Ministério Público restou a defesa das prerrogativas constitucionais negadas pelo Poder Legislativo. Destarte, os representantes do povo, eleitos democraticamente não estão sendo representados pelo Poder Legislativo, sendo feita tal representação pelo Ministério Público. Ao passo que aos Tribunais de Contas, como órgão auxiliar do Poder Legislativo, o real e efetivo controle dos gastos públicos já que o Poder Legislativo quedou-se ou quedasse inerte desse dever inarredável. Destarte, cabe pensar em uma limitação dos poderes dos integrantes da República Federativa do Brasil, admitindo a sua ampliação como, por exemplo, em uma possível divisão quinária, incluindo o Ministério Público e o Tribunal de Contas, com o objetivo de tornar mais equânime a divisão dos poderes e a carga de fiscalização a ser exercida diante dos excessivos poderes em que o Poder Executivo vem amealhando nos últimos anos. Por derradeiro, aquela tripartição harmônica, contando com um sistema de freios e contra pesos, não mais existe, prevalecendo o poder do Chefe do Poder Executivo, a omissão do Poder Legislativo e, ao que pode fazer, o Poder Judiciário atuando para uma tarefa que não é sua. Os consensos necessários, competência exclusiva do Legislativo e do Executivo, estão sendo desproporcionalmente exercidos pelo último, tornando cada vez mais desigual a vida no Estado Democrático Brasileiro, em face de que não dispõe de limites e quem não tem limites costuma abusar de suas prerrogativas..</p>
+    </section>
+
+    <!-- Referências -->
+    <section class="page" id="referencias">
+      <h2>Referências</h2>
+      <ul>
+        <li>FÉDER, João, Estado sem poder, São Paulo, Max Limonad, 1997.</li>
+        <li>FERREIRA FILHO, Manoel Gonçalves, A democracia no liminar do século XXI, São Paulo, Saraiva, 2001.</li>
+        <li>GOMES, José Jairo, Direito eleitoral, Belo Horizonte, Del Rey, 2008.</li>
+        <li>MORAES, Alexandre de, Presidencialismo, São Paulo, Atlas, 2013.</li>
+        <li>REIS, Marlon, A república da propina, São Paulo, Planeta, 2016.</li>
+        <li>SCHIER, Paulo Ricardo, Presidencialismo de coalizão, Curitiba, Juruá, 2017.</li>
+      </ul>
+    </section>
+
+  </div>
+
+  <!-- Navegação -->
+  <div class="nav-buttons">
+    <button id="prev">← Página Anterior</button>
+    <button id="next">Próxima Página →</button>
+  </div>
+
+  <footer>
+    Desenvolvido por Jackxwell Lima - Desenvolvedor Web
+  </footer>
+</div>
+
+<script>
+const pages = document.getElementById('pages');
+const pageSections = document.querySelectorAll('.page');
+let currentPage = 0;
+
+document.getElementById('next').addEventListener('click', () => {
+  if(currentPage < pageSections.length - 1) currentPage++;
+  pageSections[currentPage].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+});
+
+document.getElementById('prev').addEventListener('click', () => {
+  if(currentPage > 0) currentPage--;
+  pageSections[currentPage].scrollIntoView({ behavior: 'smooth', inline: 'start' });
+});
+
+// Swipe mobile
+let startX = 0;
+pages.addEventListener('touchstart', (e) => startX = e.touches[0].clientX);
+pages.addEventListener('touchend', (e) => {
+  let diff = startX - e.changedTouches[0].clientX;
+  if(diff > 50 && currentPage < pageSections.length - 1) currentPage++;
+  if(diff < -50 && currentPage > 0) currentPage--;
+  pageSections[currentPage].scrollIntoView({ behavior:'smooth', inline:'start' });
+});
+</script>
+
+</body>
+</html>

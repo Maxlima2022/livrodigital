@@ -4,87 +4,341 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Visor Digital Interativo</title>
+
 <style>
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif;background:#111;color:#fff}
 body{display:flex;align-items:center;justify-content:center;padding:24px}
+
 .dashboard{
   width:min(1180px,100%); min-height:650px; padding:34px;
   border-radius:24px; background:linear-gradient(145deg,#090909,#1a1a1a);
   box-shadow:0 30px 80px #000, inset 0 0 0 1px #333;
 }
+
 .top{display:flex;align-items:center;justify-content:space-between;gap:20px}
 .brand{font-weight:800;letter-spacing:4px;color:#aaa;font-size:14px}
 .sun{font-size:68px;line-height:1}
+
 .main{display:grid;grid-template-columns:1fr 1.7fr;gap:30px;align-items:center;margin-top:15px}
 .left{text-align:center}
-.temp{font-size:clamp(70px,11vw,130px);font-weight:800;letter-spacing:-6px;line-height:.9}
+
+.temp{
+  font-size:clamp(70px,11vw,130px);
+  font-weight:800;
+  letter-spacing:-6px;
+  line-height:.9
+}
+
 .unit{font-size:25px;color:#aaa;margin-left:8px}
 .condition{font-size:18px;color:#bbb;margin-top:12px}
-.humidity{font-size:clamp(36px,5vw,64px);font-weight:700;margin-top:35px}
-.humidity small{font-size:16px;color:#aaa;letter-spacing:2px}
-.clock{text-align:center}
-.time{font-family:"Courier New",monospace;font-size:clamp(90px,14vw,190px);font-weight:900;letter-spacing:-10px;line-height:.85;text-shadow:0 0 20px rgba(255,255,255,.12)}
-.date{font-size:24px;color:#bbb;margin-top:20px;letter-spacing:5px;text-transform:uppercase}
-.info{display:flex;justify-content:center;gap:28px;margin-top:28px;color:#aaa;font-size:14px}
-.info strong{display:block;color:#fff;font-size:25px;margin-top:5px}
-.controls{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:45px}
-button{
-  border:1px solid #444;background:#202020;color:#fff;border-radius:50%;
-  width:62px;height:62px;cursor:pointer;box-shadow:0 6px 15px #000;
-  transition:.2s;font-weight:800
+
+.humidity{
+  font-size:clamp(36px,5vw,64px);
+  font-weight:700;
+  margin-top:35px
 }
-button:hover{transform:translateY(-2px);background:#333}
-button.active{background:#fff;color:#111}
-.label{display:flex;flex-direction:column;align-items:center;gap:8px;color:#aaa;font-size:11px;letter-spacing:1px}
-.status{margin-top:22px;text-align:center;color:#666;font-size:12px}
-.trend{margin-top:35px;display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-.bar{height:60px;border-radius:6px 6px 2px 2px;background:linear-gradient(to top,#315b9a,#b8cce9);position:relative}
-.bar span{position:absolute;bottom:-20px;left:0;right:0;text-align:center;color:#777;font-size:10px}
+
+.humidity small{
+  font-size:16px;
+  color:#aaa;
+  letter-spacing:2px
+}
+
+.clock{text-align:center}
+
+.time{
+  font-family:"Courier New",monospace;
+  font-size:clamp(90px,14vw,190px);
+  font-weight:900;
+  letter-spacing:-10px;
+  line-height:.85;
+  text-shadow:0 0 20px rgba(255,255,255,.12)
+}
+
+.date{
+  font-size:24px;
+  color:#bbb;
+  margin-top:20px;
+  letter-spacing:5px;
+  text-transform:uppercase
+}
+
+.info{
+  display:flex;
+  justify-content:center;
+  gap:28px;
+  margin-top:28px;
+  color:#aaa;
+  font-size:14px
+}
+
+.info strong{
+  display:block;
+  color:#fff;
+  font-size:25px;
+  margin-top:5px
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:45px
+}
+
+button{
+  border:1px solid #444;
+  background:#202020;
+  color:#fff;
+  border-radius:50%;
+  width:62px;
+  height:62px;
+  cursor:pointer;
+  box-shadow:0 6px 15px #000;
+  transition:.2s;
+  font-weight:800
+}
+
+button:hover{
+  transform:translateY(-2px);
+  background:#333
+}
+
+button.active{
+  background:#fff;
+  color:#111
+}
+
+.label{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  color:#aaa;
+  font-size:11px;
+  letter-spacing:1px
+}
+
+.status{
+  margin-top:22px;
+  text-align:center;
+  color:#666;
+  font-size:12px
+}
+
+.trend{
+  margin-top:35px;
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+  gap:6px
+}
+
+.bar{
+  height:60px;
+  border-radius:6px 6px 2px 2px;
+  background:linear-gradient(to top,#315b9a,#b8cce9);
+  position:relative
+}
+
+.bar span{
+  position:absolute;
+  bottom:-20px;
+  left:0;
+  right:0;
+  text-align:center;
+  color:#777;
+  font-size:10px
+}
+
+/* =========================================
+   BOTÃO DE TELA CHEIA
+   ========================================= */
+
+.fullscreen-btn{
+  position:fixed;
+  top:18px;
+  right:18px;
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  border:1px solid #444;
+  background:#202020;
+  color:#fff;
+  font-size:20px;
+  cursor:pointer;
+  z-index:9999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 6px 15px #000;
+}
+
+.fullscreen-btn:hover{
+  background:#333;
+  transform:scale(1.05);
+}
+
+/* Quando estiver em tela cheia */
+:fullscreen body{
+  padding:0;
+}
+
+:fullscreen .dashboard{
+  width:100%;
+  min-height:100vh;
+  border-radius:0;
+}
+
+/* Compatibilidade */
+:-webkit-full-screen body{
+  padding:0;
+}
+
+:-webkit-full-screen .dashboard{
+  width:100%;
+  min-height:100vh;
+  border-radius:0;
+}
+
 @media(max-width:800px){
- .dashboard{padding:22px}.main{grid-template-columns:1fr}.top{align-items:flex-start}
- .time{font-size:clamp(65px,19vw,120px);letter-spacing:-6px}.temp{font-size:90px}
+
+ .dashboard{padding:22px}
+
+ .main{
+   grid-template-columns:1fr
+ }
+
+ .top{
+   align-items:flex-start
+ }
+
+ .time{
+   font-size:clamp(65px,19vw,120px);
+   letter-spacing:-6px
+ }
+
+ .temp{
+   font-size:90px
+ }
+
 }
 </style>
 </head>
+
 <body>
+
+<!-- BOTÃO TELA CHEIA -->
+<button
+  id="fullscreenBtn"
+  class="fullscreen-btn"
+  title="Ampliar para tela cheia"
+  aria-label="Ampliar para tela cheia"
+>
+  ⛶
+</button>
+
+
 <div class="dashboard">
+
   <div class="top">
     <div class="brand">VISOR • REAL TIME</div>
     <div class="sun" id="sun">☀</div>
   </div>
 
   <div class="main">
+
     <section class="left">
-      <div><span class="temp" id="temperature">--</span><span class="unit" id="unit">°C</span></div>
-      <div class="condition" id="condition">Carregando clima...</div>
-      <div class="humidity"><span id="humidity">--</span>% <small>UMIDADE</small></div>
+
+      <div>
+        <span class="temp" id="temperature">--</span>
+        <span class="unit" id="unit">°C</span>
+      </div>
+
+      <div class="condition" id="condition">
+        Carregando clima...
+      </div>
+
+      <div class="humidity">
+        <span id="humidity">--</span>%
+        <small>UMIDADE</small>
+      </div>
+
     </section>
 
+
     <section class="clock">
-      <div class="time" id="clock">00:00</div>
-      <div class="date" id="date">--</div>
-      <div class="info">
-        <div>HOJE<strong id="dayName">--</strong></div>
-        <div>SEMANA<strong id="week">--</strong></div>
+
+      <div class="time" id="clock">
+        00:00
       </div>
+
+      <div class="date" id="date">
+        --
+      </div>
+
+      <div class="info">
+
+        <div>
+          HOJE
+          <strong id="dayName">--</strong>
+        </div>
+
+        <div>
+          SEMANA
+          <strong id="week">--</strong>
+        </div>
+
+      </div>
+
     </section>
+
   </div>
+
 
   <div class="trend" id="trend"></div>
 
+
   <div class="controls">
-    <div class="label"><button id="modeBtn" title="Modo">M</button>MODO</div>
-    <div class="label"><button id="formatBtn" title="12/24">24</button>12/24</div>
-    <div class="label"><button id="unitBtn" title="Celsius/Fahrenheit">°C</button>°C / °F</div>
-    <div class="label"><button id="maxBtn" title="Máxima e mínima">MAX</button>MAX/MIN</div>
-    <div class="label"><button id="snzBtn" title="Silenciar">🔔</button>SNZ</div>
+
+    <div class="label">
+      <button id="modeBtn" title="Modo">M</button>
+      MODO
+    </div>
+
+    <div class="label">
+      <button id="formatBtn" title="12/24">24</button>
+      12/24
+    </div>
+
+    <div class="label">
+      <button id="unitBtn" title="Celsius/Fahrenheit">°C</button>
+      °C / °F
+    </div>
+
+    <div class="label">
+      <button id="maxBtn" title="Máxima e mínima">MAX</button>
+      MAX/MIN
+    </div>
+
+    <div class="label">
+      <button id="snzBtn" title="Silenciar">🔔</button>
+      SNZ
+    </div>
+
   </div>
 
-  <div class="status" id="status">Atualização automática ativada</div>
+
+  <div class="status" id="status">
+    Atualização automática ativada
+  </div>
+
 </div>
 
+
 <script>
+
 const state = {
   is24: true,
   celsius: true,
@@ -99,136 +353,514 @@ const state = {
 
 const $ = id => document.getElementById(id);
 
-const days = ['DOMINGO','SEGUNDA','TERÇA','QUARTA','QUINTA','SEXTA','SÁBADO'];
+const days = [
+  'DOMINGO',
+  'SEGUNDA',
+  'TERÇA',
+  'QUARTA',
+  'QUINTA',
+  'SEXTA',
+  'SÁBADO'
+];
+
 
 function updateClock(){
+
   const now = new Date();
-  let h = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+
+  let h = now.getHours(),
+      m = now.getMinutes(),
+      s = now.getSeconds();
+
   let suffix = '';
 
   if(!state.is24){
+
     suffix = h >= 12 ? ' PM' : ' AM';
+
     h = h % 12 || 12;
+
   }
 
   $('clock').textContent =
     String(h).padStart(2,'0') + ':' +
     String(m).padStart(2,'0') +
-    (state.mode === 0 ? '' : ':' + String(s).padStart(2,'0')) + suffix;
+    (state.mode === 0
+      ? ''
+      : ':' + String(s).padStart(2,'0')
+    ) + suffix;
+
 
   $('date').textContent =
     String(now.getDate()).padStart(2,'0') + '/' +
     String(now.getMonth()+1).padStart(2,'0') + '/' +
     now.getFullYear();
 
-  $('dayName').textContent = days[now.getDay()];
-  $('week').textContent = 'SEM ' + getWeekNumber(now);
+
+  $('dayName').textContent =
+    days[now.getDay()];
+
+
+  $('week').textContent =
+    'SEM ' + getWeekNumber(now);
+
 }
+
 
 function getWeekNumber(d){
-  const date = new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate()));
-  const day = date.getUTCDay() || 7;
-  date.setUTCDate(date.getUTCDate()+4-day);
-  const yearStart = new Date(Date.UTC(date.getUTCFullYear(),0,1));
-  return Math.ceil((((date-yearStart)/86400000)+1)/7);
+
+  const date = new Date(
+    Date.UTC(
+      d.getFullYear(),
+      d.getMonth(),
+      d.getDate()
+    )
+  );
+
+  const day =
+    date.getUTCDay() || 7;
+
+  date.setUTCDate(
+    date.getUTCDate() + 4 - day
+  );
+
+  const yearStart =
+    new Date(
+      Date.UTC(
+        date.getUTCFullYear(),
+        0,
+        1
+      )
+    );
+
+  return Math.ceil(
+    (((date-yearStart)/86400000)+1)/7
+  );
+
 }
+
 
 function renderWeather(){
-  let value = state.celsius ? state.tempC : (state.tempC * 9/5) + 32;
-  $('temperature').textContent = value.toFixed(1);
-  $('unit').textContent = state.celsius ? '°C' : '°F';
-  $('humidity').textContent = Math.round(state.humidity);
+
+  let value =
+    state.celsius
+      ? state.tempC
+      : (state.tempC * 9/5) + 32;
+
+
+  $('temperature').textContent =
+    value.toFixed(1);
+
+
+  $('unit').textContent =
+    state.celsius ? '°C' : '°F';
+
+
+  $('humidity').textContent =
+    Math.round(state.humidity);
+
 
   if(state.showMaxMin){
-    const max = state.celsius ? state.max : (state.max*9/5)+32;
-    const min = state.celsius ? state.min : (state.min*9/5)+32;
-    $('condition').textContent = `MÁX ${max.toFixed(1)}° / MÍN ${min.toFixed(1)}°`;
+
+    const max =
+      state.celsius
+        ? state.max
+        : (state.max*9/5)+32;
+
+
+    const min =
+      state.celsius
+        ? state.min
+        : (state.min*9/5)+32;
+
+
+    $('condition').textContent =
+      `MÁX ${max.toFixed(1)}° / MÍN ${min.toFixed(1)}°`;
+
   }else{
-    $('condition').textContent = 'VISOR DIGITAL • TEMPO REAL';
+
+    $('condition').textContent =
+      'VISOR DIGITAL • TEMPO REAL';
+
   }
+
 }
+
 
 function renderTrend(){
+
   const trend = $('trend');
+
   trend.innerHTML = '';
+
   for(let i=0;i<6;i++){
-    const b=document.createElement('div');
+
+    const b =
+      document.createElement('div');
+
     b.className='bar';
-    b.style.height=(35 + Math.sin(i*.9)*18 + Math.random()*8)+'px';
-    const sp=document.createElement('span');
-    sp.textContent='H'+i;
+
+    b.style.height =
+      (35 +
+      Math.sin(i*.9)*18 +
+      Math.random()*8) + 'px';
+
+
+    const sp =
+      document.createElement('span');
+
+    sp.textContent =
+      'H'+i;
+
+
     b.appendChild(sp);
+
     trend.appendChild(b);
+
   }
+
 }
+
 
 function saveSettings(){
-  localStorage.setItem('visorSettings', JSON.stringify({
-    is24:state.is24,celsius:state.celsius,muted:state.muted
-  }));
+
+  localStorage.setItem(
+    'visorSettings',
+    JSON.stringify({
+
+      is24:state.is24,
+      celsius:state.celsius,
+      muted:state.muted
+
+    })
+  );
+
 }
+
+
 function loadSettings(){
+
   try{
-    const s=JSON.parse(localStorage.getItem('visorSettings'));
-    if(s){state.is24=s.is24;state.celsius=s.celsius;state.muted=s.muted}
+
+    const s =
+      JSON.parse(
+        localStorage.getItem('visorSettings')
+      );
+
+    if(s){
+
+      state.is24 = s.is24;
+      state.celsius = s.celsius;
+      state.muted = s.muted;
+
+    }
+
   }catch(e){}
+
 }
+
 
 $('formatBtn').onclick=()=>{
+
   state.is24=!state.is24;
-  $('formatBtn').textContent=state.is24?'24':'12';
-  saveSettings(); updateClock();
-};
-$('unitBtn').onclick=()=>{
-  state.celsius=!state.celsius;
-  $('unitBtn').textContent=state.celsius?'°C':'°F';
-  saveSettings(); renderWeather();
-};
-$('maxBtn').onclick=()=>{
-  state.showMaxMin=!state.showMaxMin;
-  $('maxBtn').classList.toggle('active',state.showMaxMin);
-  renderWeather();
-};
-$('modeBtn').onclick=()=>{
-  state.mode=(state.mode+1)%2;
-  $('modeBtn').classList.toggle('active',state.mode===1);
-  updateClock();
-};
-$('snzBtn').onclick=()=>{
-  state.muted=!state.muted;
-  $('snzBtn').textContent=state.muted?'🔕':'🔔';
-  $('snzBtn').classList.toggle('active',state.muted);
+
+  $('formatBtn').textContent =
+    state.is24?'24':'12';
+
   saveSettings();
+
+  updateClock();
+
 };
 
-async function loadWeather(){
-  // Coordenadas padrão: São Paulo. Altere latitude/longitude se desejar outra cidade.
-  const lat = -23.5505, lon = -46.6333;
-  try{
-    const url=`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code&hourly=temperature_2m&forecast_days=1&timezone=auto`;
-    const r=await fetch(url);
-    const data=await r.json();
-    if(data.current){
-      state.tempC=Number(data.current.temperature_2m);
-      state.humidity=Number(data.current.relative_humidity_2m);
-      state.max=state.tempC; state.min=state.tempC;
-      $('status').textContent='Clima atualizado • '+new Date().toLocaleTimeString('pt-BR');
-      renderWeather();
-    }
-  }catch(e){
-    $('status').textContent='Relógio funcionando • clima sem conexão';
-    renderWeather();
+
+$('unitBtn').onclick=()=>{
+
+  state.celsius=!state.celsius;
+
+  $('unitBtn').textContent =
+    state.celsius?'°C':'°F';
+
+  saveSettings();
+
+  renderWeather();
+
+};
+
+
+$('maxBtn').onclick=()=>{
+
+  state.showMaxMin=!state.showMaxMin;
+
+  $('maxBtn').classList.toggle(
+    'active',
+    state.showMaxMin
+  );
+
+  renderWeather();
+
+};
+
+
+$('modeBtn').onclick=()=>{
+
+  state.mode =
+    (state.mode+1)%2;
+
+  $('modeBtn').classList.toggle(
+    'active',
+    state.mode===1
+  );
+
+  updateClock();
+
+};
+
+
+$('snzBtn').onclick=()=>{
+
+  state.muted=!state.muted;
+
+  $('snzBtn').textContent =
+    state.muted?'🔕':'🔔';
+
+  $('snzBtn').classList.toggle(
+    'active',
+    state.muted
+  );
+
+  saveSettings();
+
+};
+
+
+/* =========================================
+   TELA CHEIA
+   ========================================= */
+
+const fullscreenBtn =
+  $('fullscreenBtn');
+
+
+function atualizarBotaoTelaCheia(){
+
+  if(
+    document.fullscreenElement ||
+    document.webkitFullscreenElement
+  ){
+
+    fullscreenBtn.textContent = '⛶';
+
+    fullscreenBtn.title =
+      'Sair da tela cheia';
+
+    fullscreenBtn.setAttribute(
+      'aria-label',
+      'Sair da tela cheia'
+    );
+
+  }else{
+
+    fullscreenBtn.textContent = '⛶';
+
+    fullscreenBtn.title =
+      'Ampliar para tela cheia';
+
+    fullscreenBtn.setAttribute(
+      'aria-label',
+      'Ampliar para tela cheia'
+    );
+
   }
+
 }
 
-loadSettings();
-$('formatBtn').textContent=state.is24?'24':'12';
-$('unitBtn').textContent=state.celsius?'°C':'°F';
-$('snzBtn').textContent=state.muted?'🔕':'🔔';
-updateClock(); renderWeather(); renderTrend(); loadWeather();
 
-setInterval(updateClock,1000);
-setInterval(loadWeather,5*60*1000);
+fullscreenBtn.onclick = async () => {
+
+  try{
+
+    if(
+      !document.fullscreenElement &&
+      !document.webkitFullscreenElement
+    ){
+
+      if(document.documentElement.requestFullscreen){
+
+        await document.documentElement.requestFullscreen();
+
+      }else if(
+        document.documentElement.webkitRequestFullscreen
+      ){
+
+        document.documentElement.webkitRequestFullscreen();
+
+      }
+
+    }else{
+
+      if(document.exitFullscreen){
+
+        await document.exitFullscreen();
+
+      }else if(document.webkitExitFullscreen){
+
+        document.webkitExitFullscreen();
+
+      }
+
+    }
+
+  }catch(error){
+
+    console.error(
+      'Erro ao alterar tela cheia:',
+      error
+    );
+
+  }
+
+};
+
+
+document.addEventListener(
+  'fullscreenchange',
+  atualizarBotaoTelaCheia
+);
+
+document.addEventListener(
+  'webkitfullscreenchange',
+  atualizarBotaoTelaCheia
+);
+
+
+/* ESC TAMBÉM ATUALIZA O BOTÃO */
+
+document.addEventListener(
+  'keydown',
+  function(event){
+
+    if(event.key === 'Escape'){
+
+      setTimeout(
+        atualizarBotaoTelaCheia,
+        100
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   CLIMA
+   ========================================= */
+
+async function loadWeather(){
+
+  // Coordenadas padrão: São Paulo.
+  const lat = -23.5505,
+        lon = -46.6333;
+
+  try{
+
+    const url =
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,weather_code&hourly=temperature_2m&forecast_days=1&timezone=auto`;
+
+
+    const r =
+      await fetch(url);
+
+
+    const data =
+      await r.json();
+
+
+    if(data.current){
+
+      state.tempC =
+        Number(
+          data.current.temperature_2m
+        );
+
+
+      state.humidity =
+        Number(
+          data.current.relative_humidity_2m
+        );
+
+
+      state.max =
+        state.tempC;
+
+      state.min =
+        state.tempC;
+
+
+      $('status').textContent =
+        'Clima atualizado • ' +
+        new Date().toLocaleTimeString('pt-BR');
+
+
+      renderWeather();
+
+    }
+
+  }catch(e){
+
+    $('status').textContent =
+      'Relógio funcionando • clima sem conexão';
+
+    renderWeather();
+
+  }
+
+}
+
+
+/* =========================================
+   INICIALIZAÇÃO
+   ========================================= */
+
+loadSettings();
+
+
+$('formatBtn').textContent =
+  state.is24?'24':'12';
+
+
+$('unitBtn').textContent =
+  state.celsius?'°C':'°F';
+
+
+$('snzBtn').textContent =
+  state.muted?'🔕':'🔔';
+
+
+updateClock();
+
+renderWeather();
+
+renderTrend();
+
+loadWeather();
+
+atualizarBotaoTelaCheia();
+
+
+setInterval(
+  updateClock,
+  1000
+);
+
+
+setInterval(
+  loadWeather,
+  5*60*1000
+);
+
 </script>
+
 </body>
 </html>
